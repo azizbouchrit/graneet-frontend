@@ -1,23 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import Cities from './components/Cities';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function App() {
+  const [input, setInput] = useState('');
+  const [prevInput, setPrevInput] = useState('');
+  const [metropolianCities, setMetropolianCities] = useState([]);
+  const [otherCities, setOtherCities] = useState([]);
+
+  useEffect(async () => {
+    if (input) {
+      try {
+        const { data } = await axios.get('http://localhost:3002/cities/' + input)
+        setMetropolianCities(data.metropolianCities)
+        setOtherCities(data.otherCities)
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      setMetropolianCities([])
+      setOtherCities([])
+    }
+  }, [input]);
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header input={input} setInput={setInput} />
+      <main className="App__main">
+        <Cities title="Villes de métropole" cities={metropolianCities} />
+        <Cities title='Villes d’outre-mer' cities={otherCities} />
+      </main>
     </div>
   );
 }

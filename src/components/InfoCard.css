@@ -1,0 +1,14 @@
+.info-card{
+  font-size: 15px;
+  padding: 20px 30px;
+  color: var(--white);
+  margin: 20px 0;
+}
+
+.info-card--green {
+  background-color: var(--green);
+}
+
+.info-card--red {
+  background-color: var(--red);
+}

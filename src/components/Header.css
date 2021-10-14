@@ -1,0 +1,28 @@
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30px;
+  gap: 32px;
+}
+
+.header h1 {
+  font-size: inherit;
+}
+
+.header__input {
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 10px 28px;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: var(--input-bg-color);
+  outline: none;
+  flex-grow: 1;
+}
+
+.header__input::placeholder {
+  color: var(--input-placeholder-color);
+}

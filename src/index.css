@@ -1,13 +1,39 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+
+:root {
+  --body-bg-color: #f3fdff;
+  --card-bg-color: #d2e5e9;
+  --input-bg-color: #f0fcff;
+  --input-placeholder-color: #DCDCDC;
+  --city-card-bg-color: rgba(22, 28, 41, 0.63);
+  --green: rgba(57, 187, 55, 0.63);
+  --red: rgba(187, 55, 55, 0.63);
+  --white: #fff;
+  --zip-color: #8C8F9A;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--body-bg-color);
+  height: 100%;
+}
+
+.card {
+  background-color: var(--card-bg-color);
+  border-radius: 10px;
+  padding: 0 35px;
+}
+
+.card--cities{
+  flex-grow: 1;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
 }

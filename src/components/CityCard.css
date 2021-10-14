@@ -1,0 +1,16 @@
+.city-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--city-card-bg-color);
+  padding: 20px 14px;
+  font-size: 15px;
+}
+
+.city-card__name{
+  color: var(--white);
+}
+
+.city-card__zip{
+  color: var(--zip-color)
+}
