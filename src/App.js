@@ -14,7 +14,7 @@ function App() {
   useEffect(async () => {
     if (input) {
       try {
-        const { data } = await axios.get('http://localhost:3002/cities/' + input)
+        const { data } = await axios.get('https://graneet1.herokuapp.com/cities/' + input)
         setMetropolianCities(data.metropolianCities)
         setOtherCities(data.otherCities)
       } catch (e) {
