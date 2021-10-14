@@ -5,21 +5,25 @@ import Cities from './components/Cities';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+let testInput = ''
 function App() {
   const [input, setInput] = useState('');
-  const [prevInput, setPrevInput] = useState('');
   const [metropolianCities, setMetropolianCities] = useState([]);
   const [otherCities, setOtherCities] = useState([]);
 
   useEffect(async () => {
-    if (input) {
-      try {
-        const { data } = await axios.get('https://graneet1.herokuapp.com/cities/' + input)
-        setMetropolianCities(data.metropolianCities)
-        setOtherCities(data.otherCities)
-      } catch (e) {
-        console.log(e);
-      }
+    testInput = input
+    if (input !== "") {
+      await sleep(500)
+      if(input === testInput){
+        try {
+          const { data } = await axios.get('https://graneet1.herokuapp.com/cities/' + input)
+          setMetropolianCities(data.metropolianCities)
+          setOtherCities(data.otherCities)
+        } catch (e) {
+          console.log(e);
+        }
+      }     
     } else {
       setMetropolianCities([])
       setOtherCities([])
